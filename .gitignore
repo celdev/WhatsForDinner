@@ -7,3 +7,10 @@
 .externalNativeBuild
 /.idea
 api_keys.xml
+food_type_asian.jpg
+food_type_buffet.jpeg
+food_type_european.jpg
+food_type_fast_food.jpg
+food_type_japanese.png
+food_type_swedish.jpg
+food_type_thai.jpg

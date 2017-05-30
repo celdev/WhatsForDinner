@@ -26,12 +26,12 @@
         <ImageView
             android:id="@+id/restaurantImage"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="200dp"
             android:adjustViewBounds="true"
             android:background="@color/colorAccent"
             android:cropToPadding="true"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/rest_test" />
+            />
 
         <TextView
             android:id="@+id/restaurantNameWhite"
@@ -83,7 +83,7 @@
                 android:id="@+id/favoriteButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add to\nFavorite"
+                android:text="@string/add_as_favorite"
                 android:scaleHeight="50%"
                 android:scaleWidth="50%"
                 android:drawableTop="@drawable/ic_favorite"
