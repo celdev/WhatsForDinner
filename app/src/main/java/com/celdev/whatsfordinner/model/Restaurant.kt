@@ -1,6 +1,8 @@
 package com.celdev.whatsfordinner.model
 
 import com.celdev.whatsfordinner.R
+import com.celdev.whatsfordinner.TimeGiver
+import com.celdev.whatsfordinner.TimeGiverImpl
 
 class Restaurant(val id: Long,
                  val name: String,
@@ -15,28 +17,52 @@ class Restaurant(val id: Long,
         }
     }
 
-    var blockedFor3Hours: Boolean = false
-    var blockedFor3HoursTime: Long = 0
+    private val THREE_HOURS = 1000 * 60 * 60 * 3
+
+    private var blockedFor3Hours: Boolean = false
+    private var blockedFor3HoursTime: Long = 0
     var blockedForever : Boolean = false
     var favorite : Boolean = false
+
+    fun getIsBlocked(timeGiver: TimeGiver = TimeGiverImpl()) : Boolean {
+        if(blockedForever){
+            return true
+        }
+        if(blockedFor3Hours){
+            if (checkShouldUnblock(timeGiver.getCurrentTimeMillis())) {
+                removeTemporaryBlock()
+                return false
+            }
+            return true
+        }
+        return false
+    }
+
+    private fun checkShouldUnblock(now : Long) : Boolean {
+        return blockedFor3HoursTime + THREE_HOURS <= now
+    }
+
+
+    fun removeAllBlocks() {
+        removeForeverBlock()
+        removeTemporaryBlock()
+    }
 
     fun getAllDrawable() : Array<Int> {
         return restaurantFoodType.map { restaurantFoodType -> restaurantFoodType.image }.toTypedArray()
     }
 
-    fun getAllNames() : Array<String> {
+    fun getAllFoodTypeNames() : Array<String> {
         return restaurantFoodType.map { restaurantFoodType -> restaurantFoodType.foodTypeName }.toTypedArray()
     }
 
-    fun setBlockedFor3Hours(){
+    fun setBlockedFor3Hours(timeGiver : TimeGiver = TimeGiverImpl()){
         blockedFor3Hours = true
-        blockedFor3HoursTime = System.currentTimeMillis()
+        blockedFor3HoursTime = timeGiver.getCurrentTimeMillis()
     }
 
     fun removeForeverBlock(){
         blockedForever = false
-        blockedFor3Hours = false
-        blockedFor3HoursTime = 0
     }
 
     fun removeTemporaryBlock(){

@@ -1,8 +1,7 @@
 package com.celdev.whatsfordinner
 
 import com.celdev.whatsfordinner.model.*
-import org.junit.Assert.assertArrayEquals
-import org.junit.Assert.assertEquals
+import org.junit.Assert.*
 import org.junit.Test
 
 /**
@@ -53,6 +52,95 @@ class ModelTest {
         assertEquals(drawables.size,2)
         assertArrayEquals(drawables, arrayOf(RestaurantFoodType.THAI.image, RestaurantFoodType.BUFFET.image))
     }
+
+
+    @Test
+    fun blockTestSetBlocked() {
+        val restaurant = TestObjectCreator.createRestaurant()
+        restaurant.setBlockedFor3Hours()
+        assertTrue(restaurant.getIsBlocked())
+    }
+
+    @Test
+    fun blockTestSetBlocked3HoursPassed() {
+        val restaurant = TestObjectCreator.createRestaurant()
+        restaurant.setBlockedFor3Hours(object : TimeGiver{
+            override fun getCurrentTimeMillis(): Long {
+                return 0
+            }
+        })
+        assertTrue(restaurant.getIsBlocked(object : TimeGiver{
+            override fun getCurrentTimeMillis(): Long {
+                return 0
+            }
+        }))
+        assertFalse(restaurant.getIsBlocked(object : TimeGiver{
+            override fun getCurrentTimeMillis(): Long {
+                return 60 * 60 * 1000 * 3
+            }
+        }))
+    }
+
+    @Test
+    fun testForeverBlocked(){
+        val restaurant = TestObjectCreator.createRestaurant()
+        restaurant.blockedForever = true
+        assertTrue(restaurant.getIsBlocked())
+        restaurant.setBlockedFor3Hours()
+        assertTrue(restaurant.getIsBlocked())
+        restaurant.removeForeverBlock()
+        assertTrue(restaurant.getIsBlocked())
+        restaurant.removeTemporaryBlock()
+        assertFalse(restaurant.getIsBlocked())
+    }
+
+
+    @Test
+    fun testRemoveAllBlocks(){
+        val restaurant = TestObjectCreator.createRestaurant()
+        restaurant.blockedForever = true
+        assertTrue(restaurant.getIsBlocked())
+        restaurant.setBlockedFor3Hours()
+        assertTrue(restaurant.getIsBlocked())
+        restaurant.removeAllBlocks()
+        assertFalse(restaurant.getIsBlocked())
+    }
+
+    @Test
+    fun setFavorite(){
+        val restaurant = TestObjectCreator.createRestaurant()
+        restaurant.favorite = true
+        assertTrue(restaurant.favorite)
+    }
+
+    @Test
+    fun setUnSetFavorite(){
+        val restaurant = TestObjectCreator.createRestaurant()
+        restaurant.favorite = true
+        assertTrue(restaurant.favorite)
+        restaurant.favorite = false
+        assertFalse(restaurant.favorite)
+    }
+
+    @Test
+    fun testGetAllNames(){
+        val restaurant = Restaurant(
+                0,"test","test",RestaurantArea.KAMALA, setOf(RestaurantFoodType.ASIAN,RestaurantFoodType.EUROPEAN),
+                setOf(BudgetType.CHEAP), MapPoint(0.0,0.0))
+        val allFoodTypeNames = restaurant.getAllFoodTypeNames()
+        val toTypedArray = setOf<RestaurantFoodType>(RestaurantFoodType.ASIAN, RestaurantFoodType.EUROPEAN).map { restaurantFoodType -> restaurantFoodType.foodTypeName }.toTypedArray()
+        assertArrayEquals(toTypedArray,allFoodTypeNames)
+    }
+
+    @Test
+    fun getDescription(){
+        val restaurant = Restaurant(
+                0,"test","test",RestaurantArea.KAMALA, setOf(RestaurantFoodType.ASIAN,RestaurantFoodType.EUROPEAN),
+                setOf(BudgetType.CHEAP), MapPoint(0.0,0.0))
+        assertEquals("test", restaurant.description)
+    }
+
+
 
 
 
