@@ -3,4 +3,10 @@
 
     <string name="remove_from_favorite">Remove\nfavorite</string>
     <string name="add_as_favorite">Add as\nfavorite</string>
+    <string name="restaurant_name">Restaurant name</string>
+    <string name="description">Description</string>
+    <string name="baht_cheap">฿</string>
+    <string name="baht_normal">฿฿</string>
+    <string name="baht_expensive">฿฿฿</string>
+    <string name="baht_very_expensive">฿฿฿฿</string>
 </resources>
