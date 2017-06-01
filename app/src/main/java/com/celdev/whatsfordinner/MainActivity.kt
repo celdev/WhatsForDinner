@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
                 0,
                 "May's Favorite restaurant",
                 "Cheap and tasty Thai food",
-                RestaurantArea.PATONG,
+                "Patong",
                 setOf(RestaurantFoodType.THAI),
                 setOf(BudgetType.CHEAP),
                 MapPoint(18.0,19.0)
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
                 1,
                 "Cheap steak restaurant",
                 "Cheap steak, pasta and thai food",
-                RestaurantArea.PATONG,
+                "Patong",
                 setOf(RestaurantFoodType.EUROPEAN,RestaurantFoodType.THAI),
                 setOf(BudgetType.CHEAP, BudgetType.NORMAL),
                 MapPoint(18.0,19.0)

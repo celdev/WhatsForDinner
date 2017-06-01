@@ -7,7 +7,7 @@ import com.celdev.whatsfordinner.TimeGiverImpl
 class Restaurant(val id: Long,
                  val name: String,
                  val description: String,
-                 val restaurantArea: RestaurantArea,
+                 val restaurantArea: String,
                  val restaurantFoodType: Set<RestaurantFoodType>,
                  val budgetType: Set<BudgetType>,
                  val MapPoint: MapPoint) {
@@ -74,16 +74,6 @@ class Restaurant(val id: Long,
 
 class MapPoint(val latitude : Double, val longitude : Double) {}
 
-enum class RestaurantArea(val areaName : String) {
-
-    KAMALA("Kamala"),
-    PATONG("Patong"),
-    KATHU("Kathu"),
-    KARON("Karon"),
-    BANG_TAO("Bang Tao"),
-    PHUKET_TOWN("Phuket Town")
-
-}
 
 enum class RestaurantFoodType(val foodTypeName : String, val image: Int){
 
@@ -93,7 +83,8 @@ enum class RestaurantFoodType(val foodTypeName : String, val image: Int){
     ASIAN("Asian", R.drawable.food_type_asian),
     JAPANESE("Japanese", R.drawable.food_type_japanese),
     BUFFET("Buffet", R.drawable.food_type_buffet),
-    FAST_FOOD("Fast food", R.drawable.food_type_fast_food)
+    FAST_FOOD("Fast food", R.drawable.food_type_fast_food),
+    STEAK("Steak", R.drawable.food_type_steak)
 
 }
 

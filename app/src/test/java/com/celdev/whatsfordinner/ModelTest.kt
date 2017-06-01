@@ -14,12 +14,12 @@ class ModelTest {
     @Test
     fun testRestaurantModel(){
         val restaurant = Restaurant(0, "Best-aurant",
-                "Cheap beer and expensive steak", RestaurantArea.PATONG,
+                "Cheap beer and expensive steak", "Patong",
                 setOf(RestaurantFoodType.THAI, RestaurantFoodType.BUFFET), setOf(BudgetType.CHEAP, BudgetType.EXPENSIVE),
                 MapPoint(18.12312,79.231231))
         assertEquals(restaurant.id, 0)
         assertEquals(restaurant.name, "Best-aurant")
-        assertEquals(restaurant.restaurantArea, RestaurantArea.PATONG)
+        assertEquals(restaurant.restaurantArea, "Patong")
         assertArrayEquals(restaurant.restaurantFoodType.toTypedArray(), arrayOf(RestaurantFoodType.THAI, RestaurantFoodType.BUFFET))
         assertArrayEquals(restaurant.budgetType.toTypedArray(), arrayOf(BudgetType.CHEAP, BudgetType.EXPENSIVE))
         assertEquals(restaurant.MapPoint.latitude,18.12312,0.01)
@@ -29,7 +29,7 @@ class ModelTest {
     @Test(expected = IllegalArgumentException::class)
     fun testIllegalRestaurantFoodType(){
         Restaurant(0, "Best-aurant",
-                "Cheap beer and expensive steak", RestaurantArea.PATONG,
+                "Cheap beer and expensive steak", "Patong",
                 setOf(), setOf(BudgetType.CHEAP, BudgetType.EXPENSIVE),
                 MapPoint(18.12312, 79.231231))
     }
@@ -37,7 +37,7 @@ class ModelTest {
     @Test(expected = IllegalArgumentException::class)
     fun testIllegalRestaurantBudgetType(){
         Restaurant(0, "Best-aurant",
-                "Cheap beer and expensive steak", RestaurantArea.PATONG,
+                "Cheap beer and expensive steak", "Patong",
                 setOf(RestaurantFoodType.THAI, RestaurantFoodType.BUFFET), setOf(),
                 MapPoint(18.12312, 79.231231))
     }
@@ -45,7 +45,7 @@ class ModelTest {
     @Test
     fun getDrawableTest(){
         val restaurant = Restaurant(0, "Best-aurant",
-                "Cheap beer and expensive steak", RestaurantArea.PATONG,
+                "Cheap beer and expensive steak", "Patong",
                 setOf(RestaurantFoodType.THAI, RestaurantFoodType.BUFFET), setOf(BudgetType.CHEAP, BudgetType.EXPENSIVE),
                 MapPoint(18.12312,79.231231))
         val drawables = restaurant.getAllDrawable()
@@ -125,7 +125,7 @@ class ModelTest {
     @Test
     fun testGetAllNames(){
         val restaurant = Restaurant(
-                0,"test","test",RestaurantArea.KAMALA, setOf(RestaurantFoodType.ASIAN,RestaurantFoodType.EUROPEAN),
+                0,"test","test","Kamala", setOf(RestaurantFoodType.ASIAN,RestaurantFoodType.EUROPEAN),
                 setOf(BudgetType.CHEAP), MapPoint(0.0,0.0))
         val allFoodTypeNames = restaurant.getAllFoodTypeNames()
         val toTypedArray = setOf<RestaurantFoodType>(RestaurantFoodType.ASIAN, RestaurantFoodType.EUROPEAN).map { restaurantFoodType -> restaurantFoodType.foodTypeName }.toTypedArray()
@@ -135,7 +135,7 @@ class ModelTest {
     @Test
     fun getDescription(){
         val restaurant = Restaurant(
-                0,"test","test",RestaurantArea.KAMALA, setOf(RestaurantFoodType.ASIAN,RestaurantFoodType.EUROPEAN),
+                0,"test","test","Kamala", setOf(RestaurantFoodType.ASIAN,RestaurantFoodType.EUROPEAN),
                 setOf(BudgetType.CHEAP), MapPoint(0.0,0.0))
         assertEquals("test", restaurant.description)
     }

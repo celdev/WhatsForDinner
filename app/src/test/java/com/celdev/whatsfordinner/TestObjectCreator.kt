@@ -25,7 +25,7 @@ class TestObjectCreator {
             return Restaurant(
                     id, faker.company().name(),
                     faker.lorem().characters(20,80),
-                    RestaurantArea.values()[faker.random().nextInt(RestaurantArea.values().size)],
+                    "Patong",
                     getRandomRestaurantFoodType(3),
                     setOf(BudgetType.values()[faker.random().nextInt(BudgetType.values().size)]),
                     MapPoint(10.0,10.0)
