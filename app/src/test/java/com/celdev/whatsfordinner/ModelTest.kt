@@ -4,11 +4,6 @@ import com.celdev.whatsfordinner.model.*
 import org.junit.Assert.*
 import org.junit.Test
 
-/**
- * Example local unit test, which will execute on the development machine (host).
-
- * @see [Testing documentation](http://d.android.com/tools/testing)
- */
 class ModelTest {
 
     @Test
@@ -128,7 +123,7 @@ class ModelTest {
                 0,"test","test","Kamala", setOf(RestaurantFoodType.ASIAN,RestaurantFoodType.EUROPEAN),
                 setOf(BudgetType.CHEAP), MapPoint(0.0,0.0))
         val allFoodTypeNames = restaurant.getAllFoodTypeNames()
-        val toTypedArray = setOf<RestaurantFoodType>(RestaurantFoodType.ASIAN, RestaurantFoodType.EUROPEAN).map { restaurantFoodType -> restaurantFoodType.foodTypeName }.toTypedArray()
+        val toTypedArray = setOf<RestaurantFoodType>(RestaurantFoodType.ASIAN, RestaurantFoodType.EUROPEAN).map { restaurantFoodType -> restaurantFoodType.foodTypeNameRes }.toTypedArray()
         assertArrayEquals(toTypedArray,allFoodTypeNames)
     }
 
@@ -138,6 +133,28 @@ class ModelTest {
                 0,"test","test","Kamala", setOf(RestaurantFoodType.ASIAN,RestaurantFoodType.EUROPEAN),
                 setOf(BudgetType.CHEAP), MapPoint(0.0,0.0))
         assertEquals("test", restaurant.description)
+    }
+
+
+    @Test
+    fun testCreateRestaurantWithBlockedInfo(){
+        val restaurant = TestObjectCreator.createRestaurant(0)
+        restaurant.blockedForever = true
+        val timeGiver = object : TimeGiver{
+            override fun getCurrentTimeMillis(): Long {
+                return 0L
+            }
+        }
+        restaurant.setBlockedFor3Hours(timeGiver)
+        val restaurant2 = Restaurant(
+                restaurant.id,restaurant.name,restaurant.description,restaurant.restaurantArea,
+                restaurant.restaurantFoodType,restaurant.budgetType,restaurant.MapPoint,
+                true,true,0
+        )
+        assertEquals(restaurant, restaurant2)
+        assertEquals(restaurant.blockedForever, restaurant2.blockedForever)
+        assertEquals(restaurant.getIsBlocked(timeGiver), restaurant2.getIsBlocked(timeGiver))
+        assertEquals(restaurant.getIsBlocked(), restaurant2.getIsBlocked())
     }
 
 

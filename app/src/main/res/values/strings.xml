@@ -9,4 +9,16 @@
     <string name="baht_normal">฿฿</string>
     <string name="baht_expensive">฿฿฿</string>
     <string name="baht_very_expensive">฿฿฿฿</string>
+
+
+    <string name="food_type_thai">Thai</string>
+    <string name="food_type_european">European</string>
+    <string name="food_type_asian">Asian</string>
+    <string name="food_type_fast_food">Fast food</string>
+    <string name="food_type_swedish">Swedish</string>
+    <string name="food_type_japanese">Japanese</string>
+    <string name="food_type_buffet">Buffet</string>
+    <string name="food_type_steak">Steak</string>
+    <string name="create_restaurant">Create Restaurant</string>
+
 </resources>

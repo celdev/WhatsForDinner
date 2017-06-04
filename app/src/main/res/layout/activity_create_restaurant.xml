@@ -26,7 +26,9 @@
             android:orientation="horizontal"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText2">
+            app:layout_constraintTop_toBottomOf="@+id/restaurantDescription"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintLeft_creator="1">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -36,7 +38,7 @@
                 android:orientation="vertical">
 
                 <CheckBox
-                    android:id="@+id/checkBox5"
+                    android:id="@+id/checkbox_cheap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/baht_cheap"
@@ -51,7 +53,7 @@
                 android:orientation="vertical">
 
                 <CheckBox
-                    android:id="@+id/checkBox3"
+                    android:id="@+id/checkbox_normal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/baht_normal"
@@ -66,7 +68,7 @@
                 android:orientation="vertical">
 
                 <CheckBox
-                    android:id="@+id/checkBox4"
+                    android:id="@+id/checkbox_expensive"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/baht_expensive"
@@ -81,7 +83,7 @@
                 android:orientation="vertical">
 
                 <CheckBox
-                    android:id="@+id/checkBox7"
+                    android:id="@+id/checkbox_very_expensive"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/baht_very_expensive"
@@ -98,7 +100,9 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/budgetLayout"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintLeft_creator="1">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -111,10 +115,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Thai"
+                    android:text="@string/food_type_thai"
                     />
                 <CheckBox
-                    android:id="@+id/checkBox15"
+                    android:id="@+id/checkbox_thai"
                     android:textSize="18dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -132,10 +136,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Asian"
+                    android:text="@string/food_type_asian"
                     />
                 <CheckBox
-                    android:id="@+id/checkBox13"
+                    android:id="@+id/checkbox_asian"
                     android:textSize="18dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -153,10 +157,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Steak"
+                    android:text="@string/food_type_steak"
                     />
                 <CheckBox
-                    android:id="@+id/checkBox14"
+                    android:id="@+id/checkbox_steak"
                     android:textSize="18dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -174,10 +178,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Swedish"
+                    android:text="@string/food_type_swedish"
                     />
                 <CheckBox
-                    android:id="@+id/checkBox17"
+                    android:id="@+id/checkbox_swedish"
                     android:textSize="18dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -193,7 +197,9 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/foodTypeRow0"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintLeft_creator="1">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -206,11 +212,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="European"
+                    android:text="@string/food_type_european"
                     />
 
                 <CheckBox
-                    android:id="@+id/checkBox25"
+                    android:id="@+id/checkbox_european"
                     android:textSize="18dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -228,11 +234,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Japanese"
+                    android:text="@string/food_type_japanese"
                     />
 
                 <CheckBox
-                    android:id="@+id/checkBox23"
+                    android:id="@+id/checkbox_japanese"
                     android:textSize="18dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -250,11 +256,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Buffet"
+                    android:text="@string/food_type_buffet"
                     />
 
                 <CheckBox
-                    android:id="@+id/checkBox24"
+                    android:id="@+id/checkbox_buffet"
                     android:textSize="18dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -276,7 +282,7 @@
                     />
 
                 <CheckBox
-                    android:id="@+id/checkBox27"
+                    android:id="@+id/checkbox_fast_food"
                     android:textSize="18dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -292,7 +298,8 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/imageLayout"
-            >
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintLeft_creator="1">
 
             <ImageView
 
@@ -346,10 +353,12 @@
             android:textAlignment="center"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/imageLayout"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintLeft_creator="1" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/restaurantDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -360,7 +369,24 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/restaurantNameField" />
+            app:layout_constraintTop_toBottomOf="@+id/restaurantNameField"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintLeft_creator="1" />
+
+        <Button
+            android:id="@+id/createRestaurantButton"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/create_restaurant"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/foodTypeRow1"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
 
 
     </android.support.constraint.ConstraintLayout>
